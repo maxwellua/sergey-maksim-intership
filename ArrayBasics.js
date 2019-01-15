@@ -63,3 +63,31 @@ f(arrThird);
 
 /////   /////
 
+///// 4 /////
+let arrFourthOne = [1,144646,144727,144629,144743,144730,];
+let arrFourthTwo = [144727,144728,144625,144647,];
+let arrFourthFinalyMin = [];
+let arrFourthFinalyMax = [];
+let arrFourthGrouped = [];
+arrFourthGrouped[0] = [];
+arrFourthGrouped[0][0] = arrFourthOne.map((value) => {return value});
+arrFourthGrouped[0][1] = arrFourthTwo.map((value) => {return value});
+
+for (let iteration = 0; iteration < 2; iteration++) {
+    arrFourthFinalyMax[iteration] = arrFourthGrouped[0][iteration].reduce( (maximum , current) => {
+        if (maximum < current) { maximum = current }
+        return maximum;
+    } )
+
+}
+
+for (let iteration = 0; iteration < 2; iteration++) {
+    arrFourthFinalyMin[iteration] = arrFourthGrouped[0][iteration].reduce( (minimum , current) => {
+        if (current < minimum) { minimum = current }
+        return minimum;
+    }, )
+
+}
+console.log(arrFourthFinalyMax);
+console.log(arrFourthFinalyMin);
+/////   /////
