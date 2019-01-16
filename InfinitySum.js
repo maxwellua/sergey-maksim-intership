@@ -1,16 +1,15 @@
 function sum(a) {
-
     let currentSum = a;
-
-    function f(b) {
+    function nextStep(b) {
         currentSum += b;
-        return f;
+
+        return nextStep;
     }
 
-    f.toString = function() {
+    nextStep.toString = function() {
         return currentSum;
     };
 
-    return f;
+    return nextStep;
 }
-console.log(sum(1)(4));
+console.log(sum(1)(2)(3)()
