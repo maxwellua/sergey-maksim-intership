@@ -1,8 +1,8 @@
 const arrThird = [1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1];
 
 function doIt(currentArr) {
-    let totalAmountOfSameValues = 1;
-    let maximumTotalAmountOfSameValues = 0;
+    let totalValues = 1;
+    let maximumTotalValues = 0;
     let startArg;
     let endArg;
     let maximumStartArg;
@@ -11,17 +11,17 @@ function doIt(currentArr) {
     for (let value = 0; value < 2; value++) {
         for (let iteration = 0; iteration < arrThird.length; iteration++) {
             if ((currentArr[iteration] == value) && (currentArr[iteration + 1] == value) ) {
-                totalAmountOfSameValues++;
+                totalValues++;
                 if (startArg == undefined ) { startArg = iteration }
                 endArg = iteration+1;
-                if (totalAmountOfSameValues > maximumTotalAmountOfSameValues) {
-                    maximumTotalAmountOfSameValues = totalAmountOfSameValues;
+                if (totalValues > maximumTotalValues) {
+                    maximumTotalValues = totalValues;
                     maximumStartArg = startArg;
                     maximumEndArg = endArg;
                     maximumValue = value;
                 }
             } else {
-                totalAmountOfSameValues = 1;
+                totalValues = 1;
                 startArg = undefined;
                 endArg = undefined
             }
