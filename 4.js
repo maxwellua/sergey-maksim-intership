@@ -7,12 +7,14 @@ arrFourthMax[0] = arrFourthOne.reduce( (maximum , current) => {
     if (maximum < current) {
         maximum = current
     }
+
     return maximum;
 });
 arrFourthMax[1] = arrFourthTwo.reduce( (maximum , current) => {
     if (maximum < current) {
         maximum = current
     }
+
     return maximum;
 });
 
@@ -20,12 +22,14 @@ arrFourthMin[0] = arrFourthOne.reduce( (minimum , current) => {
     if (current < minimum) {
         minimum = current
     }
+
     return minimum;
 });
 arrFourthMin[1] = arrFourthTwo.reduce( (minimum , current) => {
     if (current < minimum) {
         minimum = current
     }
+
     return minimum;
 });
 

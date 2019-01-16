@@ -1,6 +1,6 @@
 const arrThird = [1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1];
 
-function doIt(currentArr) {
+function checkResult(currentArr) {
     let totalValues = 1;
     let maximumTotalValues = 0;
     let startArg;
@@ -13,7 +13,7 @@ function doIt(currentArr) {
             if ((currentArr[iteration] == value) && (currentArr[iteration + 1] == value) ) {
                 totalValues++;
                 if (startArg == undefined ) { startArg = iteration }
-                endArg = iteration+1;
+                endArg = iteration + 1;
                 if (totalValues > maximumTotalValues) {
                     maximumTotalValues = totalValues;
                     maximumStartArg = startArg;
@@ -27,6 +27,6 @@ function doIt(currentArr) {
             }
         }
     }
-    console.log('Самое большое количество подряд идущих чисел = ' + maximumTotalAmountOfSameValues + '\n Это число - ' + maximumValue + ' \n Начало ряда с ' + maximumStartArg + ' элемента \n Конец с ' + maximumEndArg + ' элемента')
+    console.log('Самое большое количество подряд идущих чисел = ' + maximumTotalValues + '\n Это число - ' + maximumValue + ' \n Начало ряда с ' + maximumStartArg + ' элемента \n Конец с ' + maximumEndArg + ' элемента')
 }
-doIt(arrThird);
+checkResult(arrThird);

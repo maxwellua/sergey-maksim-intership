@@ -1,12 +1,1 @@
 # s.borodin-intership
-
-
-
-
-
-
-
-
-
-
-
