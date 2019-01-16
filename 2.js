@@ -1,13 +1,14 @@
-const arr = [1,2,3,4,5,6,7,8,9,-40];
+const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, -40];
 
 function getSameOfArr(currentArr) {
-    for (let iFirst = 0; iFirst < currentArr.length - 1; iFirst++){
-        for (let iSecond = iFirst + 1; iSecond < currentArr.length; iSecond++){
-            if ( currentArr[iFirst] === currentArr[iSecond] ){
+    for (let counter1 = 0; counter1 < currentArr.length - 1; counter1++){
+        for (let counter2 = counter1 + 1; counter2 < currentArr.length; counter2++){
+            if ( currentArr[counter1] === currentArr[counter2] ){
                 return 'Есть!'
             }
         }
     }
+
     return 'Нет!'
 }
 console.log(getSameOfArr(arr));
