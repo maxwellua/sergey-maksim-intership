@@ -13,5 +13,3 @@ function getFinalyArr(currentArray, index) {
         }
     }
 }
-
-console.log(getFinalyArr(startArray, index));
