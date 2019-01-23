@@ -1,55 +1,84 @@
-// Определяем конструктор Person
-var Person = function(firstName) {
-    this.firstName = firstName;
-};
+if (!Function.prototype.bind) {
+    Function.prototype.bind = function(oThis) {
+        if (typeof this !== 'function') {
+            throw new TypeError('Function.prototype.bind - what is trying to be bound is not callable');
+        }
 
-// Добавляем пару методов в Person.prototype
-Person.prototype.walk = function(){
-    console.log("I am walking!");
-};
+        var aArgs = Array.prototype.slice.call(arguments, 1),
+            fToBind = this,
+            fNOP    = function() {},
+            fBound  = function() {
+                return fToBind.apply(this instanceof fNOP && oThis
+                    ? this
+                    : oThis,
+                    aArgs.concat(Array.prototype.slice.call(arguments)));
+            };
 
-Person.prototype.sayHello = function(){
-    console.log("Hello, I'm " + this.firstName);
-};
+        fNOP.prototype = this.prototype;
+        fBound.prototype = new fNOP();
 
-// Определяем конструктор Student
-function Student(firstName, subject) {
-    // Вызываем конструктор родителя, убедившись (используя Function#call)
-    // что "this" в момент вызова установлен корректно
-    Person.call(this, firstName);
+        return fBound;
+    }
+}
 
-    // Инициируем свойства класса Student
-    this.subject = subject;
-};
 
-// Создаём объект Student.prototype, который наследуется от Person.prototype.
-// Примечание: Рспространённая ошибка здесь, это использование "new Person()", чтобы создать
-// Student.prototype. Это неверно по нескольким причинам, не в последнюю очередь
-// потому, что нам нечего передать в Person в качестве аргумента "firstName"
-// Правильное место для вызова Person показано выше, где мы вызываем
-// его в конструкторе Student.
-Student.prototype = Object.create(Person.prototype); // Смотрите примечание выше
+if (!Object.assign) {
+    Object.defineProperty(Object, 'assign', {
+        enumerable: false,
+        configurable: true,
+        writable: true,
+        value: function(target, firstSource) {
+            'use strict';
+            if (target === undefined || target === null) {
+                throw new TypeError('Cannot convert first argument to object');
+            }
 
-// Устанавливаем свойство "constructor" для ссылки на класс Student
-Student.prototype.constructor = Student;
+            var to = Object(target);
+            for (var i = 1; i < arguments.length; i++) {
+                var nextSource = arguments[i];
+                if (nextSource === undefined || nextSource === null) {
+                    continue;
+                }
 
-// Заменяем метод "sayHello"
-Student.prototype.sayHello = function(){
-    console.log("Hello, I'm " + this.firstName + ". I'm studying "
-        + this.subject + ".");
-};
+                var keysArray = Object.keys(Object(nextSource));
+                for (var nextIndex = 0, len = keysArray.length; nextIndex < len; nextIndex++) {
+                    var nextKey = keysArray[nextIndex];
+                    var desc = Object.getOwnPropertyDescriptor(nextSource, nextKey);
+                    if (desc !== undefined && desc.enumerable) {
+                        to[nextKey] = nextSource[nextKey];
+                    }
+                }
+            }
 
-// Добавляем метод "sayGoodBye"
-Student.prototype.sayGoodBye = function(){
-    console.log("Goodbye!");
-};
+            return to;
+        }
+    });
+}
 
-// Пример использования:
-var student1 = new Student("Janet", "Applied Physics");
-student1.sayHello();   // "Hello, I'm Janet. I'm studying Applied Physics."
-student1.walk();       // "I am walking!"
-student1.sayGoodBye(); // "Goodbye!"
+if (typeof Object.create != 'function') {
+    Object.create = (function() {
+        function Temp() {}
+        var hasOwn = Object.prototype.hasOwnProperty;
 
-// Проверяем, что instanceof работает корректно
-console.log(student1 instanceof Person);  // true
-console.log(student1 instanceof Student); // true
+        return function (O) {
+            // 1. If Type(O) is not Object or Null throw a TypeError exception.
+            if (typeof O != 'object') {
+                throw TypeError('Object prototype may only be an Object or null');
+            }
+
+            Temp.prototype = O;
+            var obj = new Temp();
+            Temp.prototype = null;
+            if (arguments.length > 1) {
+                var Properties = Object(arguments[1]);
+                for (var prop in Properties) {
+                    if (hasOwn.call(Properties, prop)) {
+                        obj[prop] = Properties[prop];
+                    }
+                }
+            }
+
+            return obj;
+        };
+    })();
+}
