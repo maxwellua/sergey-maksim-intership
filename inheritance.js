@@ -45,6 +45,40 @@ meizux54.buttonOnCenter();
 meizux54.soundModule();
 console.log(meizux54);
 ////////////////////////////////
+function Machine(power) {
+    this._enabled = false;
+    var self = this;
+    this.enable = function() {
+        self._enabled = true;
+    };
+    this.disable = function() {
+        self._enabled = false;
+    };
+}
+
+function CoffeeMachine(power) {
+    Machine.apply(this, arguments);
+    var waterAmount = 0;
+    this.setWaterAmount = function(amount) {
+        waterAmount = amount;
+    };
+    var parentEnable = this.enable;
+    this.enable = function() {
+        parentEnable(); // теперь можно вызывать как угодно, this не важен
+        this.run();
+    };
+    function onReady() {
+        alert( 'Кофе готово!' );
+    }
+    this.run = function() {
+        setTimeout(onReady, 1000);
+    };
+}
+
+var coffeeMachine = new CoffeeMachine(10000);
+coffeeMachine.setWaterAmount(50);
+coffeeMachine.enable();
+////////////////////////////////
 function Lada(name, created) {
     this.name = name;
     this.created = created;
@@ -97,8 +131,8 @@ Rabbit.prototype.jump = function() {
     alert(this.name + ' прыгает, скорость ' + this.speed);
 };
 
-let krosh = new Rabbit('Кроля');
-console.log(krosh);
-krosh.stop();
-console.log(krosh);
-console.log(krosh);
+let firstRabbit = new Rabbit('Кролик');
+console.log(firstRabbit);
+firstRabbit.stop();
+console.log(firstRabbit);
+console.log(firstRabbit);
