@@ -1,13 +1,13 @@
 function divisors(integer) {
-  let divisorsList = [];
+  const divisorsList = [];
  
   for (let i = 2; i <= integer - 1; i++) {
-    if (integer % i === 0) {
+    if (!(integer % i)) {
       divisorsList.push(i);
     };
   };
   
-  if (divisorsList.length === 0) {
+  if (!divisorsList.length) {
     return `${integer} is prime`;
   }
 
