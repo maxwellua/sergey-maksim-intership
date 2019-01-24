@@ -13,6 +13,11 @@ Function.prototype.myOwnBind = function(newThis) {
     };
 };
 
+function F() {
+F.prototype = o;
+return new F()
+}
+
 Function.prototype.myOwnApply = function(someOtherThis, arr) {
     someOtherThis = someOtherThis || global;
     var uniqueID = "00" + Math.random();
@@ -109,9 +114,9 @@ if (!Object.assign) {
 }
 
 if (typeof Object.create !== 'function') {
-    Object.create = function(o, props) {
+    Object.create = function(object, props) {
         function F() {}
-        F.prototype = o;
+        F.prototype = object;
 
         if (typeof(props) === "object") {
             for (prop in props) {
