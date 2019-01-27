@@ -7,9 +7,25 @@ function applyForVisa(documents, resolve, reject) {
     }, 1500)
 }
 
+function bookHotel() {
+
+}
+
+function buyTickets() {
+
+}
+
 applyForVisa({}, function (visa) {
     console.log('Виза получена!');
+    bookHotel(visa, function (reservation) {
+        buyTickets(reservation, function () {
+            
+        })
+    },
+        function (error) {
+
+        })
 },
 function (reason) {
-    console.error('Виза не получена. ')
+    console.error('Виза не получена. ');
 });
