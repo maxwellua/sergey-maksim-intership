@@ -3,7 +3,7 @@ function applyForVisa(documents) {
     let promise = new Promise(function (resolve, reject) {
         setTimeout(function () {
             Math.random() > .1
-                ? resolve({})
+                ? resolve('Visa for JTS')
                 : reject('В визе отказано из-за нехватки документов!')
         }, 1500)
     });
@@ -12,14 +12,18 @@ function applyForVisa(documents) {
 
 function getVisa(visa) {
     console.info('Виза получена!');
-    return visa
+    return new Promise(function (resolve, reject) {
+        setTimeout(() => resolve(visa), 2000);
+    })
 }
 
 function bookHotel(visa) {
     console.log('Ваша виза - ' + visa);
     console.log('Бронируем отель!');
-    return {}
-}
+    return new Promise(function (resolve, reject) {
+        setTimeout(() => resolve('Number:556'),2000)
+    }) // Эту строку можно заменить на Promise.resolve(номерОтеля)   НЕ ИСПОЛЬЗУЯ КОНСТРУКТОР ПРОМИСА
+} // Для моментального отклонения обещания Promise.reject()
 
 function buyTickets(booking) {
     console.log('Ваша бронь - ' + booking);
