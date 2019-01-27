@@ -10,17 +10,19 @@ function applyForVisa(documents) {
     return promise;
 }
 
-function bookHotel() {}
+function bookHotel(visa) {
+    console.log('Ваша виза - ' + visa);
+    console.log('Бронируем отель!')
+}
 
-function buyTickets() {}
+function buyTickets() {
+    console.log('Покупаем билеты!')
+}
 
 applyForVisa({})
-    .then(
-        function (visa) {
-            console.info('Виза получена!')
-        },
-        function (reason) {
-            console.error(reason);
-      }
-    );
+    .then(visa => console.info('Виза получена!')) //После этого создается новое обещание для bookHotel
+    //не обязателен так как есть .catch /// reason => console.error(reason)
+    .then(bookHotel)
+    .then(buyTickets)
+    .catch(error => console.error(error)); //после .catch можно вызвать еще функцию, не зависящую от старого промиса
 
