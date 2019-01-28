@@ -1,0 +1,35 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    background:  linear-gradient(to left bottom, red, blue);
+}
+
+.content {
+    padding-left: 55vh;
+    padding-top: 20vh;
+}
+.form {
+    height: 72vh;
+    width: 70vh;
+    background: linear-gradient(to left bottom, red, aqua);
+    opacity: 0.85;
+    border-radius: 10px;
+    /*justify-self: center;*/
+    display: flex;
+    flex-direction: column;
+}
+p {
+    font-family: Monaco;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    font-size: 1.3em;
+    margin: 0;
+    text-align: center;
+}
+.formInput {
+    text-align: center;
+    margin-left: 7vh;
+    font-size: 30px;
+    height: 35px;
+    width: 450px;
+}
