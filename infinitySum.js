@@ -1,16 +1,16 @@
 function sum(arg) {
-	let totalSum = (!arg) ? 0 : arg;
+  let totalSum = (!arg) ? 0 : arg;
 
-	function addon(argg) {
-		totalSum += argg;
-		return addon;
-	};
+  function addon(argg) {
+    totalSum += argg;
+    return addon;
+  };
 
-	sum.toString = () => totalSum;
-	addon.toString = () => totalSum;
-	addon.reset = () => totalSum = 0;
+  sum.toString = () => totalSum;
+  addon.toString = () => totalSum;
+  addon.reset = () => totalSum = 0;
 
-	return addon;
+  return addon;
 };
 
 let s = sum();
