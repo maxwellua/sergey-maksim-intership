@@ -1,14 +1,17 @@
 function getFinalGrade(exam, projects) {
-    if (exam > 90 || projects > 10) {
+switch (true) {
+    case (exam > 90 || projects > 10):
+        return 100;
+        break;
 
-        return 100
-    } else if (exam > 75 && projects >= 5) {
+    case (exam > 75 && projects >= 5):
+        return 90;
+        break;
 
-        return 90
-    } else if (exam > 50 && projects >= 2) {
-
-        return 75
-    } else {
-        return 0
+    case (exam > 75 && projects >= 5):
+        return 75;
+        break;
+    default:
+        return 0;
     }
 }
