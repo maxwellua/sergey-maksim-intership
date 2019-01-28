@@ -1,5 +1,8 @@
 const car = {
   speedStep: 20,
+};
+
+const carProto = {
   faster() {
     this.speed += this.speedStep;
   },
@@ -7,6 +10,8 @@ const car = {
     this.speed -= this.speedStep; 
   },
 };
+
+Object.setPrototypeOf(car, carProto);
 
 const lanozGTR = {
   engine: 3600,
