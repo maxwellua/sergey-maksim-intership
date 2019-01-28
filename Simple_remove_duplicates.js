@@ -3,10 +3,10 @@ function solve(solveArray, arrayDuplicates) {
 
         for (let iterationDuplicates = 0; iterationDuplicates < arrayDuplicates.length; iterationDuplicates++) {
             for (let iterationBefore = solveArray.length; iterationBefore >= 0; iterationBefore--) {
-                if (isTrue && (arrayDuplicates[iterationDuplicates] == solveArray[iterationBefore])) {
+                if (isTrue && (arrayDuplicates[iterationDuplicates] === solveArray[iterationBefore])) {
                     solveArray.splice(iterationBefore, 1)
                 }
-                if (arrayDuplicates[iterationDuplicates] == solveArray[iterationBefore]) {
+                if (arrayDuplicates[iterationDuplicates] === solveArray[iterationBefore]) {
                     isTrue = true;
                 }
             }
