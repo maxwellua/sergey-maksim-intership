@@ -13,12 +13,12 @@ function sum(arg) {
   return addon;
 };
 
-let s = sum();
+const infinitAddition = sum();
 
-console.log(s); // 0
-s.reset();
-console.log(s(1)); // 1
-s.reset();
-console.log(s(1)(2)); //3
-s.reset();
-console.log(s(3)(4)(5)); // 12
+console.log(infinitAddition); // 0
+infinitAddition.reset();
+console.log(infinitAddition(1)); // 1
+infinitAddition.reset();
+console.log(infinitAddition(1)(2)); //3
+infinitAddition.reset();
+console.log(infinitAddition(3)(4)(5)); // 12
