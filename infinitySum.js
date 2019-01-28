@@ -14,8 +14,8 @@ function sum(arg) {
 };
   
   let s = sum();
-  
-  console.log(s); // 0
+ 
+	console.log(s); // 0
   s.reset();
   console.log(s(1)); // 1
   s.reset();
