@@ -1,7 +1,7 @@
 body {
     width: 100vw;
     height: 100vh;
-    background:  linear-gradient(to left bottom, red, blue);
+    background:  linear-gradient(to left top, white, aqua, bisque);
 }
 
 .content {
@@ -10,9 +10,9 @@ body {
 }
 .form {
     height: 72vh;
-    width: 70vh;
-    background: linear-gradient(to left bottom, red, aqua);
-    opacity: 0.85;
+    width: 57.5vh;
+    background: linear-gradient(to left bottom, honeydew, aqua);
+    opacity: 0.75;
     border-radius: 10px;
     /*justify-self: center;*/
     display: flex;
@@ -27,9 +27,10 @@ p {
     text-align: center;
 }
 .formInput {
-    text-align: center;
+    letter-spacing: 2px;
+    margin-top:15px;
     margin-left: 7vh;
-    font-size: 30px;
+    font-size: 25px;
     height: 35px;
-    width: 450px;
+    width: 350px;
 }
