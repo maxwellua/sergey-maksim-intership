@@ -1,5 +1,5 @@
 function getElevator(floor, leftElevator, rightElevator) {
-    if (leftElevator == rightElevator) {
+    if (leftElevator === rightElevator) {
         return 'right'
     }
     if (floor === 0) {
