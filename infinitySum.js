@@ -3,7 +3,7 @@ function sum(arg) {
 	
 	function addon(argg) {
 		totalSum += argg; 
-	  return addon;
+		return addon;
 	};
 	
 	sum.toString = () => totalSum;
