@@ -35,7 +35,7 @@ function checkIdAndCall(id) {
             break;
 
         default:
-            checkCheckBox.call(arrayOfInputs[fieldToChange]);
+            checkCheckbox.call(arrayOfInputs[fieldToChange]);
             checkButton()
     }
 }
@@ -69,9 +69,16 @@ function checkTel() {
 }
 
 function checkPass() {
-    this.value.length < 5
+    this.value.length <= 5
     ? getColorForField.call(this, "red")
-    : getColorForField.call(this, "blue")
+    : getColorForField.call(this, "blue");
+    if (this.value.length > 5 && !(this.value === arrayOfInputs[6].value) && !(arrayOfInputs[6].value.length === 0)) {
+        getColorForField.call(arrayOfInputs[6], "red")
+    } else if (arrayOfInputs[6].value.length === 0) {
+        getColorForField.call(arrayOfInputs[6], "rgb(238, 238, 238)")
+    } else {
+        getColorForField.call(arrayOfInputs[6], "blue")
+    }
 }
 
 function checkSecondPass() {
@@ -80,7 +87,7 @@ function checkSecondPass() {
     : getColorForField.call(this, "blue")
 }
 
-function checkCheckBox() {
+function checkCheckbox() {
     this.checked
     ? this.checked = true
     : this.checked = false;
