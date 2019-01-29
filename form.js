@@ -90,6 +90,7 @@ function checkButton() {
     for (let iteration = 0; iteration < arrayOfInputs.length - 1; iteration++) {
         if (arrayOfInputs[iteration].style.borderColor !== "blue") {
             document.getElementById('registration').setAttribute('disabled', 'disabled');
+            document.getElementById('registration').style.background = 'white';
 
             return allFieldsRight = false;
         }
@@ -97,6 +98,10 @@ function checkButton() {
     allFieldsRight = true;
     if (allFieldsRight && arrayOfInputs[7].checked) {
         document.getElementById('registration').removeAttribute('disabled');
+        document.getElementById('registration').style.background = 'linear-gradient(to left bottom, bisque, grey)';
         console.log('done');
+    } else {
+        document.getElementById('registration').setAttribute('disabled', 'disabled');
+        document.getElementById('registration').style.background = 'white';
     }
 }

@@ -1,7 +1,7 @@
 body {
     width: 100vw;
     height: 100vh;
-    background:  linear-gradient(to left top, white, aqua, bisque);
+    background:  linear-gradient(to top, lightgrey, white, bisque);
 }
 
 .content {
@@ -9,9 +9,9 @@ body {
     padding-top: 15vh;
 }
 .form {
-    height: 72vh;
-    width: 57.5vh;
-    background: linear-gradient(to left bottom, honeydew, aqua);
+    height: 63.5vh;
+    width: 58vh;
+    background: linear-gradient(to left bottom, bisque, grey);
     opacity: 0.75;
     border-radius: 10px;
     /*justify-self: center;*/
@@ -27,6 +27,7 @@ p {
     text-align: center;
 }
 .formInput {
+    outline: none;
     padding-left: 5px;
     border-radius: 2px;
     letter-spacing: 2px;
@@ -37,8 +38,10 @@ p {
     width: 350px;
 }
 #registration {
+    transition: all ease 1.5s;
     margin-top: 20px;
-    background:  linear-gradient(to left top, white, aqua, bisque);
+    background:  white;
+    border-color: dimgrey;
     border-radius: inherit;
     margin-left: 140px;
     font-size: 18px;
