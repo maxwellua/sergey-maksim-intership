@@ -34,3 +34,14 @@ p {
     height: 35px;
     width: 350px;
 }
+#registration {
+    margin-top: 20px;
+    background:  linear-gradient(to left top, white, aqua, bisque);
+    border-radius: inherit;
+    margin-left: 140px;
+    font-size: 18px;
+    font-family: Monaco;
+    height: 50px;
+    width: 200px;
+}
+
