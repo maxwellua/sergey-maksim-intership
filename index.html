@@ -8,17 +8,17 @@
 <body>
 <div class="wrapper">
     <div class="content">
-        <form class="form" action="Mary.js">
-            <input onkeyup="checkIdAndBind(id)" id="name" class="formInput" type="text" placeholder="Name">
-            <input onkeyup="checkIdAndBind(id)" id="surname" class="formInput" type="text" placeholder="Surname">
-            <input onkeyup="checkIdAndBind(id)" id="country" class="formInput" type="text" placeholder="Country">
-            <input onkeyup="checkIdAndBind(id)" id="email" class="formInput" type="email" placeholder="example@gmail.com">
-            <input id="tel" class="formInput" type="tel" value="+3800800300545">
-            <input id="password" class="formInput" type="password" placeholder="Password">
-            <input id="passwordConfirm" class="formInput" type="password" placeholder="Password">
-            <p> <input id="checkbox" style="margin: 0; padding-top: -300px; width: 25px;" class="formInput" type="checkbox">I agree with license agreement
+        <form class="form" action="Mary">
+            <input onkeyup="checkIdAndCall(id)" id="name" class="formInput" type="text" placeholder="Name">
+            <input onkeyup="checkIdAndCall(id)" id="surname" class="formInput" type="text" placeholder="Surname">
+            <input onkeyup="checkIdAndCall(id)" id="country" class="formInput" type="text" placeholder="Country">
+            <input onkeyup="checkIdAndCall(id)" id="email" class="formInput" type="email" placeholder="example@gmail.com">
+            <input onkeyup="checkIdAndCall(id)" id="tel" class="formInput" type="tel" placeholder="Telephone number">
+            <input onkeyup="checkIdAndCall(id)" id="password" class="formInput" type="password" placeholder="Password">
+            <input onkeyup="checkIdAndCall(id)" id="passwordConfirm" class="formInput" type="password" placeholder="Password confirm">
+            <p> <input  onclick="checkIdAndCall(id)" id="checkbox" style="margin: 0; padding-top: -300px; width: 25px;" class="formInput" type="checkbox">I agree with license agreement
             </p>
-            <button id="registration" disabled>Registration</button>
+            <button id="registration" type="submit" disabled="disabled">Registration</button>
         </form>
     </div>
 </div>

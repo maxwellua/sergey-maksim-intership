@@ -1,43 +1,102 @@
 let arrayOfInputs = document.getElementsByClassName("formInput");
-let array = [];
+let arrayOfId = [];
+let allFieldsRight = false;
 
 for (let iteration = 0; iteration < arrayOfInputs.length; iteration++) {
-    array.push(arrayOfInputs[iteration].id);
+    arrayOfId.push(arrayOfInputs[iteration].id);
 }
 
-function checkIdAndBind(id) {
-    let fieldToChange = array.indexOf(id);
+function checkIdAndCall(id) {
+    let fieldToChange = arrayOfId.indexOf(id);
     switch (true) {
         case (fieldToChange < 3):
             checkNumbersAtField.call(arrayOfInputs[fieldToChange]);
+            checkButton();
             break;
+
         case (fieldToChange === 3):
             checkEmail.call(arrayOfInputs[fieldToChange]);
+            checkButton();
+            break;
+
+        case (fieldToChange === 4):
+            checkTel.call(arrayOfInputs[fieldToChange]);
+            checkButton();
+            break;
+
+        case (fieldToChange === 5):
+            checkPass.call(arrayOfInputs[fieldToChange]);
+            checkButton();
+            break;
+
+        case (fieldToChange === 6):
+            checkSecondPass.call(arrayOfInputs[fieldToChange]);
+            checkButton();
             break;
 
         default:
-            console.log('def')
+            checkCheckBox.call(arrayOfInputs[fieldToChange]);
+            checkButton()
     }
 }
-function checkNumbersAtField() {
-    const arry = this.value.split('').some((val) => !isNaN(val));
-    console.log(arry);
-    (arry || this.value.length === 0)
-    ? this.style.borderColor = "red"
-    : this.style.borderColor = "blue"
 
-    //if (this.value.)
-    // if (!isNaN(this.value.charAt(this.value.length - 1))) {
-    //    // console.log(this.value.charAt(this.value.length - 1));
-    //     this.style.borderColor = "red";
-    // }
+function getColorForField(result) {
+    this.style.borderColor = `${result}`;
+}
+
+function checkNumbersAtField() {
+    let reg = /^[a-zA-Z'][a-zA-Z-' ]+[a-zA-Z']?$/;
+
+    !reg.test(this.value)
+    ? getColorForField.call(this, "red")
+    : getColorForField.call(this, "blue")
 }
 
 function checkEmail() {
     let reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
-    let address = arrayOfInputs[3].value;
-    reg.test(address)
-    ? arrayOfInputs[3].style.borderColor = "blue"
-    : arrayOfInputs[3].style.borderColor = "red"
 
+    !reg.test(this.value)
+    ? getColorForField.call(this, "red")
+    : getColorForField.call(this, "blue")
+}
+
+function checkTel() {
+    let reg = /^\+?[0-9]{8,15}$/;
+
+    !reg.test(this.value)
+    ? getColorForField.call(this, "red")
+    : getColorForField.call(this, "blue")
+}
+
+function checkPass() {
+    this.value.length < 5
+    ? getColorForField.call(this, "red")
+    : getColorForField.call(this, "blue")
+}
+
+function checkSecondPass() {
+    this.value !== arrayOfInputs[5].value
+    ? getColorForField.call(this, "red")
+    : getColorForField.call(this, "blue")
+}
+
+function checkCheckBox() {
+    this.checked
+    ? this.checked = true
+    : this.checked = false;
+}
+
+function checkButton() {
+    for (let iteration = 0; iteration < arrayOfInputs.length - 1; iteration++) {
+        if (arrayOfInputs[iteration].style.borderColor !== "blue") {
+            document.getElementById('registration').setAttribute('disabled', 'disabled');
+
+            return allFieldsRight = false;
+        }
+    }
+    allFieldsRight = true;
+    if (allFieldsRight && arrayOfInputs[7].checked) {
+        document.getElementById('registration').removeAttribute('disabled');
+        console.log('done');
+    }
 }
