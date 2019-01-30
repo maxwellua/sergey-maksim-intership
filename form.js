@@ -74,7 +74,7 @@ function checkPass() {
     : getColorForField.call(this, "blue");
     if (this.value.length > 5 && !(this.value === arrayOfInputs[6].value) && !(arrayOfInputs[6].value.length === 0)) {
         getColorForField.call(arrayOfInputs[6], "red")
-    } else if (arrayOfInputs[6].value.length === 0) {
+    } else if (!!arrayOfInputs[6].value.length) {
         getColorForField.call(arrayOfInputs[6], "rgb(238, 238, 238)")
     } else {
         getColorForField.call(arrayOfInputs[6], "blue")
