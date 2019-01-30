@@ -1,96 +1,50 @@
 let arrayOfInputs = document.getElementsByClassName("formInput");
-let arrayOfId = [];
 let allFieldsRight = false;
 
-for (let iteration = 0; iteration < arrayOfInputs.length; iteration++) {
-    arrayOfId.push(arrayOfInputs[iteration].id);
-}
-
-function checkIdAndCall(id) {
-    let fieldToChange = arrayOfId.indexOf(id);
-    switch (true) {
-        case (fieldToChange < 3):
-            checkNumbersAtField.call(arrayOfInputs[fieldToChange]);
-            checkButton();
-            break;
-
-        case (fieldToChange === 3):
-            checkEmail.call(arrayOfInputs[fieldToChange]);
-            checkButton();
-            break;
-
-        case (fieldToChange === 4):
-            checkTel.call(arrayOfInputs[fieldToChange]);
-            checkButton();
-            break;
-
-        case (fieldToChange === 5):
-            checkPass.call(arrayOfInputs[fieldToChange]);
-            checkButton();
-            break;
-
-        case (fieldToChange === 6):
-            checkSecondPass.call(arrayOfInputs[fieldToChange]);
-            checkButton();
-            break;
-
-        default:
-            checkCheckbox.call(arrayOfInputs[fieldToChange]);
-            checkButton()
-    }
-}
-
 function getColorForField(result) {
-    this.style.borderColor = `${result}`;
+    result
+        ? this.style.borderColor = "red"
+        : this.style.borderColor = "blue";
+    checkButton();
 }
 
 function checkNumbersAtField() {
-    let reg = /^[a-zA-Z'][a-zA-Z-' ]+[a-zA-Z']?$/;
-
-    !reg.test(this.value)
-    ? getColorForField.call(this, "red")
-    : getColorForField.call(this, "blue")
+    const reg = /^[a-zA-Z'][a-zA-Z-' ]+[a-zA-Z']?$/;
+    getColorForField.call(this, !reg.test(this.value));
 }
 
 function checkEmail() {
-    let reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
-
-    !reg.test(this.value)
-    ? getColorForField.call(this, "red")
-    : getColorForField.call(this, "blue")
+    const reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+    getColorForField.call(this, !reg.test(this.value));
 }
 
 function checkTel() {
-    let reg = /^\+?[0-9]{8,15}$/;
-
-    !reg.test(this.value)
-    ? getColorForField.call(this, "red")
-    : getColorForField.call(this, "blue")
+    const reg = /^\+?[0-9]{8,15}$/;
+    getColorForField.call(this, !reg.test(this.value));
 }
 
 function checkPass() {
-    this.value.length <= 5
-    ? getColorForField.call(this, "red")
-    : getColorForField.call(this, "blue");
-    if (this.value.length > 5 && !(this.value === arrayOfInputs[6].value) && !(arrayOfInputs[6].value.length === 0)) {
-        getColorForField.call(arrayOfInputs[6], "red")
-    } else if (!!arrayOfInputs[6].value.length) {
-        getColorForField.call(arrayOfInputs[6], "rgb(238, 238, 238)")
+    getColorForField.call(this, this.value.length <= 5);
+    if (!arrayOfInputs[6].value.length) {
+        arrayOfInputs[6].style.borderColor = "rgb(238, 238, 238)";
+    } else if (this.value.length > 5 && !(this.value === arrayOfInputs[6].value) && !!arrayOfInputs[6].value.length ) {
+        arrayOfInputs[6].style.borderColor = "red";
     } else {
-        getColorForField.call(arrayOfInputs[6], "blue")
+        arrayOfInputs[6].style.borderColor = "blue"
     }
 }
 
 function checkSecondPass() {
-    this.value !== arrayOfInputs[5].value
-    ? getColorForField.call(this, "red")
-    : getColorForField.call(this, "blue")
+    console.log(this.value !== arrayOfInputs[5].value);
+    getColorForField.call(this, this.value !== arrayOfInputs[5].value);
+    if (!this.value.length) arrayOfInputs[6].style.borderColor = "rgb(238, 238, 238)";
 }
 
 function checkCheckbox() {
     this.checked
     ? this.checked = true
     : this.checked = false;
+    checkButton();
 }
 
 function checkButton() {

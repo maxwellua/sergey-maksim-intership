@@ -9,14 +9,14 @@
 <div class="wrapper">
     <div class="content">
         <form class="form" action="Mary">
-            <input tabindex="1" onkeyup="checkIdAndCall(id)" id="name" class="formInput" type="text" placeholder="Name">
-            <input tabindex="2" onkeyup="checkIdAndCall(id)" id="surname" class="formInput" type="text" placeholder="Surname">
-            <input tabindex="3" onkeyup="checkIdAndCall(id)" id="country" class="formInput" type="text" placeholder="Country">
-            <input tabindex="4" onkeyup="checkIdAndCall(id)" id="email" class="formInput" type="email" placeholder="example@gmail.com">
-            <input tabindex="5" onkeyup="checkIdAndCall(id)" id="tel" class="formInput" type="tel" placeholder="Telephone number">
-            <input tabindex="6" onkeyup="checkIdAndCall(id)" id="password" class="formInput" type="password" placeholder="Password">
-            <input tabindex="7" onkeyup="checkIdAndCall(id)" id="passwordConfirm" class="formInput" type="password" placeholder="Password confirm">
-            <p> <input  tabindex="8" onclick="checkIdAndCall(id)" id="checkbox" style="margin: 0; padding-top: -300px; width: 25px;" class="formInput" type="checkbox">I agree with license agreement
+            <input tabindex="1" onkeyup="checkNumbersAtField.call(arrayOfInputs[0])" id="name" class="formInput" type="text" placeholder="Name">
+            <input tabindex="2" onkeyup="checkNumbersAtField.call(arrayOfInputs[1])" id="surname" class="formInput" type="text" placeholder="Surname">
+            <input tabindex="3" onkeyup="checkNumbersAtField.call(arrayOfInputs[2])" id="country" class="formInput" type="text" placeholder="Country">
+            <input tabindex="4" onkeyup="checkEmail.call(arrayOfInputs[3])" id="email" class="formInput" type="email" placeholder="example@gmail.com">
+            <input tabindex="5" onkeyup="checkTel.call(arrayOfInputs[4])" id="tel" class="formInput" type="tel" placeholder="Telephone number">
+            <input tabindex="6" onkeyup="checkPass.call(arrayOfInputs[5])" id="password" class="formInput" type="password" placeholder="Password">
+            <input tabindex="7" onkeyup="checkSecondPass.call(arrayOfInputs[6])" id="passwordConfirm" class="formInput" type="password" placeholder="Password confirm">
+            <p> <input  tabindex="8" onclick="checkCheckbox.call(arrayOfInputs[7])" id="checkbox" style="margin: 0; padding-top: -300px; width: 25px;" class="formInput" type="checkbox">I agree with license agreement
             </p>
             <button tabindex="9" id="registration" type="submit" disabled="disabled">Registration</button>
         </form>

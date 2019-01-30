@@ -11,8 +11,9 @@ body {
 .form {
     height: 63.5vh;
     width: 58vh;
-    background: linear-gradient(to left bottom, bisque, grey);
+    background: linear-gradient(to left bottom, white, grey);
     opacity: 0.75;
+    border: 3px solid black;
     border-radius: 10px;
     /*justify-self: center;*/
     display: flex;
