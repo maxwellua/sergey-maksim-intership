@@ -79,5 +79,5 @@ function validateALL() {
   }
 };
 
-elements.regForm.addEventListener('blur', validateALL, true);
+elementsregForm.addEventListener('blur', validateALL, true);
 elements.checkbox.addEventListener('change', validateALL, true);
