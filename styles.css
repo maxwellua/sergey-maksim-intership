@@ -19,7 +19,7 @@ body {
     display: flex;
     flex-direction: column;
 }
-p {
+.paragraph {
     font-family: Monaco;
     padding-top: 4px;
     padding-bottom: 4px;
