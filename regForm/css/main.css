@@ -12,6 +12,19 @@
   padding: 5px;
 }
 
+input{
+  border: 1px solid grey;
+}
+
+a{
+  color: black;
+  text-decoration: none;
+}
+
+a:hover{
+  font-weight: 600;
+}
+
 #btnSubmit {
   height: 30px;
   width: 100px;
@@ -53,6 +66,10 @@
   height: 1.5em;
 }
 
+#cbHolder>label{
+  width: 145px;
+}
+
 .btnHolder {
   display: flex;
   justify-content: center;
@@ -60,5 +77,5 @@
 }
 
 .error {
-  border: solid red 1px;
+  border: 1px solid red;
 }

@@ -27,7 +27,7 @@ function validatePassword(password, passwordConfirm) {
   return (password.length > 5) && (password == passwordConfirm);
 };
 
-const elements = {
+const regFormElements = {
   regForm: document.getElementById('regForm'),
   name: document.getElementById('name'),
   lastname: document.getElementById('lastname'),
@@ -37,20 +37,20 @@ const elements = {
   password: document.getElementById('password'),
   passwordConfirm: document.getElementById('passwordConfirm'),
   checkbox: document.getElementById('cbLicense'),
-  btnSubmit: document.getElementById('btnSubmit'),
+  buttonSubmit: document.getElementById('btnSubmit'),
 };
 
-Object.setPrototypeOf(elements, null);
+Object.setPrototypeOf(regFormElements, null);
 
 const validator = {
   updateValidator() { 
-    this.name = validateName(elements.name.value);
-    this.lastname = validateName(elements.lastname.value);
-    this.country = validateCountry(elements.country.value);
-    this.phone = validatePhone(elements.phone.value);
-    this.email = validateEmail(elements.email.value); 
-    this.password = validatePassword(elements.password.value, elements.passwordConfirm.value);
-    this.checkbox = elements.checkbox.checked;
+    this.name = validateName(regFormElements.name.value);
+    this.lastname = validateName(regFormElements.lastname.value);
+    this.country = validateCountry(regFormElements.country.value);
+    this.phone = validatePhone(regFormElements.phone.value);
+    this.email = validateEmail(regFormElements.email.value); 
+    this.password = validatePassword(regFormElements.password.value, regFormElements.passwordConfirm.value);
+    this.checkbox = regFormElements.checkbox.checked;
   },
 };
 
@@ -59,25 +59,25 @@ Object.defineProperty(validator, 'updateValidator', {enumerable: false});
 
 function validateALL() {
   validator.updateValidator();
-  elements.btnSubmit.disabled = 0;
+  regFormElements.buttonSubmit.disabled = 0;
 
-  for (let prop in elements) {
-    if (elements[prop].classList.contains('error')) {
-      elements[prop].classList.remove('error');
+  for (let prop in regFormElements) {
+    if (regFormElements[prop].classList.contains('error')) {
+      regFormElements[prop].classList.remove('error');
     }
   }
      
   for (let prop in validator) {
     if (!validator[prop]) {
-      elements[prop].classList.add('error');
+      regFormElements[prop].classList.add('error');
       if (prop == 'password') {
-        elements.passwordConfirm.classList.add('error');
+        regFormElements.passwordConfirm.classList.add('error');
       }
     
-    elements.btnSubmit.disabled = 1;  
+    regFormElements.buttonSubmit.disabled = 1;  
     }
   }
 };
 
-elementsregForm.addEventListener('blur', validateALL, true);
-elements.checkbox.addEventListener('change', validateALL, true);
+regFormElements.regForm.addEventListener('blur', validateALL, true);
+regFormElements.checkbox.addEventListener('change', validateALL, true);
