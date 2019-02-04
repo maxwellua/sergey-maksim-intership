@@ -15,7 +15,7 @@ function longestRow(arrayToCheck) {
         maximum.start = startIndex;  
       };
     } else {
-      startIndex = index + 1;
+      startIndex = index++;
       rowLength = 0;
     };
   });
