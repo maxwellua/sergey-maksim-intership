@@ -1,0 +1,54 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    background:  linear-gradient(to top, lightgrey, white, bisque);
+}
+
+.content {
+    padding-left: 58vh;
+    padding-top: 15vh;
+}
+.form {
+    height: 63.5vh;
+    width: 58vh;
+    background: linear-gradient(to left bottom, white, grey);
+    opacity: 0.75;
+    border: 3px solid black;
+    border-radius: 10px;
+    /*justify-self: center;*/
+    display: flex;
+    flex-direction: column;
+}
+.paragraph {
+    font-family: Monaco;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    font-size: 1.3em;
+    margin: 0;
+    text-align: center;
+}
+.formInput {
+    border-color: rgb(238, 238, 238);
+    outline: none;
+    padding-left: 5px;
+    border-radius: 2px;
+    letter-spacing: 2px;
+    margin-top:15px;
+    margin-left: 7vh;
+    font-size: 25px;
+    height: 35px;
+    width: 350px;
+}
+#registration {
+    transition: all ease 1.5s;
+    margin-top: 20px;
+    background:  white;
+    border-color: dimgrey;
+    border-radius: inherit;
+    margin-left: 140px;
+    font-size: 18px;
+    font-family: Monaco;
+    height: 50px;
+    width: 200px;
+}
+
