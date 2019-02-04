@@ -1,5 +1,6 @@
 function validateName(name) {
   const pattern = /[a-zа-яё]+[\sa-zа-яё]*/i;
+  
   return !!~name.search(pattern);
 };
 
@@ -15,16 +16,18 @@ function validateCountry(country) {
 
 function validateEmail(email) {
   const pattern = /[a-z0-9]*@[a-z0-9]*\.\w{2,4}/i;
+  
   return !!~email.search(pattern)
 };
 
 function validatePhone(phone) {
   const pattern = /\+?\d+\(\d+\)\d{3}-?\d{2}-?\d{2}/;
+  
   return !!~phone.search(pattern);
 };
 
 function validatePassword(password, passwordConfirm) {
-  return (password.length > 5) && (password == passwordConfirm);
+  return password.length > 5 && password === passwordConfirm;
 };
 
 const regFormElements = {
@@ -59,7 +62,7 @@ Object.defineProperty(validator, 'updateValidator', {enumerable: false});
 
 function validateALL() {
   validator.updateValidator();
-  regFormElements.buttonSubmit.disabled = 0;
+  regFormElements.buttonSubmit.disabled = false;
 
   for (let prop in regFormElements) {
     if (regFormElements[prop].classList.contains('error')) {
@@ -70,13 +73,13 @@ function validateALL() {
   for (let prop in validator) {
     if (!validator[prop]) {
       regFormElements[prop].classList.add('error');
-      if (prop == 'password') {
+      if (prop === 'password') {
         regFormElements.passwordConfirm.classList.add('error');
-      }
+      };
     
-    regFormElements.buttonSubmit.disabled = 1;  
-    }
-  }
+    regFormElements.buttonSubmit.disabled = true;  
+    };
+  };
 };
 
 regFormElements.regForm.addEventListener('blur', validateALL, true);
