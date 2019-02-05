@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title> Registration </title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+  
+  <div id="container">
+    <div class="inputs">
+      <form id="regForm">
+        <fieldset>
+          <legend>Кто вы и откуда:</legend>  
+          <div class="labelput">
+            <label for="name">Имя</label><input id="name" type="text" placeholder="Ваше имя" required>
+          </div>
+          <div class="labelput">
+            <label for="lastname">Фамилия</label><input id="lastname" type="text" placeholder="Ваша фамилия" required>
+          </div>
+          <div class="labelput">
+            <label for="country">Страна</label><input id="country" type="text" placeholder="Страна" required>
+          </div>
+      </fieldset>
+      <fieldset>
+        <legend>Как с вами связаться:</legend>
+        <div class="labelput">
+          <label for="email">Почта</label><input id="email" type="text" placeholder="example@gmail.com" required>
+        </div>
+        <div class="labelput">
+          <label for="phone">Телефон</label><input id="phone" type="text" placeholder="+380(xx)xxx-xx-xx" required>
+        </div>  
+      </fieldset>
+      <fieldset>
+        <legend>Защита учётной записи:</legend>  
+        <div class="labelput">
+          <label for="password">Пароль</label><input id="password" type="password" placeholder="Не меньше 6 символов" required>
+        </div>
+        <div class="labelput">
+          <label for="passwordConfirm">Повтор</label><input id="passwordConfirm" type="password" placeholder="Повторите пароль" required>
+        </div>  
+      </fieldset> 
+        <div id="cbHolder">
+          <label for="cbLicense">Принимаю <a href="http://google.com.ua" target="blank">условия</a></label><input id="cbLicense" type="checkbox" required>
+        </div>
+        <div class="btnHolder">
+          <input id="btnSubmit" type="submit" form="regForm" title="Отправить" disabled>
+        </div>
+      </form>
+    </div>
+  </div>  
+
+  <script src=js/formValidation.js></script>
+
+</body>
+
+</html>

@@ -1,0 +1,81 @@
+#container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+ }
+
+.inputs {
+  background: silver;
+  margin: 5px;
+  padding: 5px;
+}
+
+input{
+  border: 1px solid grey;
+}
+
+a{
+  color: black;
+  text-decoration: none;
+}
+
+a:hover{
+  font-weight: 600;
+}
+
+#btnSubmit {
+  height: 30px;
+  width: 100px;
+  padding: 5px;
+  margin: 5px;
+}
+
+#regForm {
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+}
+
+#cbHolder {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+}
+
+.labelput {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px;
+}
+
+.labelput>input {
+  text-overflow: ellipsis;
+  width: 65%
+}
+
+.labelput>label {
+  width: 30%;
+}
+
+#cbLicense {
+  width: 1.5em;
+  height: 1.5em;
+}
+
+#cbHolder>label{
+  width: 145px;
+}
+
+.btnHolder {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.error {
+  border: 1px solid red;
+}
